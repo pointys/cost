@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.AuditRecordMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.AuditRecord">
+        <id column="t_audit_record_auditId" jdbcType="INTEGER" property="auditId"/>
+        <result column="t_audit_record_userId" jdbcType="INTEGER" property="userId"/>
+        <result column="t_audit_record_expenseId" jdbcType="INTEGER" property="expenseId"/>
+        <result column="t_audit_record_auditState" jdbcType="VARCHAR" property="auditState"/>
+        <result column="t_audit_record_auditSugg" jdbcType="VARCHAR" property="auditSugg"/>
+        <result column="t_audit_record_auditDate" jdbcType="TIMESTAMP" property="auditDate"/>
+    </resultMap>
+    <select id="querySalary" parameterType="com.nm.cost.model.SalaryRecord" resultMap="BaseResultMap">
+        select * from t_salary_record as salary
+        <if test="salaryId!=null">
+            <where>
+                salaryId=#{salaryId}
+            </where>
+            <if test="salaryName!=null">
+                <where>
+                    and salaryName=#{salaryName}
+                </where>
+            </if>
+        </if>
+    </select>
+</mapper>

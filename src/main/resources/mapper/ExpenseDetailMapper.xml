@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.ExpenseDetailMapper">
+  <resultMap id="BaseResultMap" type="com.nm.cost.model.ExpenseDetail">
+    <id column="detailId" jdbcType="INTEGER" property="detailId" />
+    <result column="expenseId" jdbcType="INTEGER" property="expenseId" />
+    <result column="costId" jdbcType="INTEGER" property="costId" />
+    <result column="detailDesc" jdbcType="VARCHAR" property="detailDesc" />
+    <result column="detailMoney" jdbcType="REAL" property="detailMoney" />
+  </resultMap>
+
+<insert id="insert" parameterType="java.util.List">
+    insert into t_expense_detail(expenseId,costId,detailDesc,detailMoney)  values
+    <foreach collection="expenseDetailList" item="ed" index="index" separator="," >
+        (#{ed.expenseId},#{ed.costId},#{ed.detailDesc},#{ed.detailMoney})
+    </foreach>
+</insert>
+</mapper>

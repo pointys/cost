@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.User">
+        <!--column 数据库中表字段 property bean的属性名称 相同可不写-->
+        <id column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="roleId" jdbcType="INTEGER" property="roleId"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="userSex" jdbcType="VARCHAR" property="userSex"/>
+        <result column="userAge" jdbcType="INTEGER" property="userAge"/>
+        <result column="userPhone" jdbcType="VARCHAR" property="userPhone"/>
+        <result column="userAccount" jdbcType="VARCHAR" property="userAccount"/>
+        <result column="userPwd" jdbcType="VARCHAR" property="userPwd"/>
+        <result column="userSalary" jdbcType="REAL" property="userSalary"/>
+        <result column="userMark" jdbcType="VARCHAR" property="userMark"/>
+    </resultMap>
+    <!--roleName非数据表字段-->
+    <select id="queryUsers" parameterType="com.nm.cost.model.User" resultMap="BaseResultMap">
+        select tu.*,tr.roleName as roleName
+        from t_users tu inner join t_role tr
+        on tu.roleId=tr.roleId where userMark='0'
+        <if test="userAccount!='' and userAccount!=null">
+            and tu.userAccount=#{userAccount}
+        </if>
+        <if test="userName!=null and userName!=''">
+            and userName like CONCAT('%',#{userName},'%')
+        </if>
+    </select>
+
+    <update id="delteUsers" parameterType="Integer">
+        update t_users set userMark ='1' where userId in
+        <foreach collection="ids" open="(" item="id" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.nm.cost.model.User">
+        update t_users
+        <set>
+            <if test="roleid != null">
+                roleId = #{roleid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="usersex != null">
+                userSex = #{usersex,jdbcType=VARCHAR},
+            </if>
+            <if test="userage != null">
+                userAge = #{userage,jdbcType=INTEGER},
+            </if>
+            <if test="userphone != null">
+                userPhone = #{userphone,jdbcType=VARCHAR},
+            </if>
+            <if test="useraccount != null">
+                userAccount = #{useraccount,jdbcType=VARCHAR},
+            </if>
+            <if test="userpwd != null">
+                userPwd = #{userpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="usersalary != null">
+                userSalary = #{usersalary,jdbcType=REAL},
+            </if>
+            <if test="usermark != null">
+                userMark = #{usermark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where userId = #{userid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.nm.cost.model.User">
+    update t_users
+    set roleId = #{roleid,jdbcType=INTEGER},
+      userName = #{username,jdbcType=VARCHAR},
+      userSex = #{usersex,jdbcType=VARCHAR},
+      userAge = #{userage,jdbcType=INTEGER},
+      userPhone = #{userphone,jdbcType=VARCHAR},
+      userAccount = #{useraccount,jdbcType=VARCHAR},
+      userPwd = #{userpwd,jdbcType=VARCHAR},
+      userSalary = #{usersalary,jdbcType=REAL},
+      userMark = #{usermark,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

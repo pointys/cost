@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="t_audit_record">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="AuditRecordMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="AuditRecord" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_audit_record" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="auditId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_audit_record" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_cost">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="CostMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Cost" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_cost" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="costId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_cost" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_expense">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="ExpenseMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Expense" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_expense" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="expenseId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_expense" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_expense_detail">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="ExpenseDetailMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="ExpenseDetail" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_expense_detail" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="detailId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_expense_detail" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_menu">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="MenuMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Menu" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_menu" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="menuId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_menu" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_role">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="RoleMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Role" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_role" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="roleId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_role" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_role_menu">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="RoleMenuMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="RoleMenu" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_role_menu" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="roleId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_role_menu" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_salary_record">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SalaryRecordMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="SalaryRecord" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_salary_record" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="salaryId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_salary_record" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="t_users">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="TUsersMapper" />
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="TsMapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="User" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$" />
+              <option name="name" value="t_users" />
+              <option name="offsetLimit" value="true" />
+              <option name="primaryKey" value="userId" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="t_users" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="initConfig">
+      <map>
+        <entry key="initConfig">
+          <value>
+            <Config>
+              <option name="daoPackage" value="com.nm.cost.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="" />
+              <option name="modelPackage" value="com.nm.cost.model" />
+              <option name="modelTargetFolder" value="" />
+              <option name="name" value="initConfig" />
+              <option name="offsetLimit" value="true" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="users">
+      <map>
+        <entry key="jdbc:mysql://localhost:3306/cost">
+          <value>
+            <User>
+              <option name="username" value="root" />
+            </User>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
