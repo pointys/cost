@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="com.nm.cost.model.Menu">
+    <id column="t_menu_menuId" jdbcType="INTEGER" property="menuid" />
+    <result column="t_menu_menuName" jdbcType="VARCHAR" property="menuname" />
+    <result column="t_menu_pMenuId" jdbcType="INTEGER" property="pmenuid" />
+    <result column="t_menu_menuUrl" jdbcType="VARCHAR" property="menuurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    t_menu.menuId as t_menu_menuId, t_menu.menuName as t_menu_menuName, t_menu.pMenuId as t_menu_pMenuId, 
+    t_menu.menuUrl as t_menu_menuUrl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu t_menu
+    where t_menu.menuId = #{menuid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_menu
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="menuId" keyProperty="menuid" parameterType="com.nm.cost.model.Menu" useGeneratedKeys="true">
+    insert into t_menu (menuName, pMenuId, menuUrl
+      )
+    values (#{menuname,jdbcType=VARCHAR}, #{pmenuid,jdbcType=INTEGER}, #{menuurl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="menuId" keyProperty="menuid" parameterType="com.nm.cost.model.Menu" useGeneratedKeys="true">
+    insert into t_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuname != null">
+        menuName,
+      </if>
+      <if test="pmenuid != null">
+        pMenuId,
+      </if>
+      <if test="menuurl != null">
+        menuUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuname != null">
+        #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="pmenuid != null">
+        #{pmenuid,jdbcType=INTEGER},
+      </if>
+      <if test="menuurl != null">
+        #{menuurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nm.cost.model.Menu">
+    update t_menu
+    <set>
+      <if test="menuname != null">
+        menuName = #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="pmenuid != null">
+        pMenuId = #{pmenuid,jdbcType=INTEGER},
+      </if>
+      <if test="menuurl != null">
+        menuUrl = #{menuurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nm.cost.model.Menu">
+    update t_menu
+    set menuName = #{menuname,jdbcType=VARCHAR},
+      pMenuId = #{pmenuid,jdbcType=INTEGER},
+      menuUrl = #{menuurl,jdbcType=VARCHAR}
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </update>
+</mapper>

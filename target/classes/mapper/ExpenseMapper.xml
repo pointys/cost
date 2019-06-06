@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.ExpenseMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.Expense">
+        <id column="expenseId" jdbcType="INTEGER" property="expenseId"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="expenseName" jdbcType="VARCHAR" property="expenseName"/>
+        <result column="expenseDesc" jdbcType="VARCHAR" property="expenseDesc"/>
+        <result column="expenseTotal" jdbcType="REAL" property="expenseTotal"/>
+        <result column="expenseDate" jdbcType="TIMESTAMP" property="expenseDate"/>
+        <result column="expenseState" jdbcType="VARCHAR" property="expenseState"/>
+    </resultMap>
+
+    <select id="getLastId" resultType="INTEGER">
+        select last_insert_id();
+    </select>
+    <select id="queryExpense" parameterType="com.nm.cost.model.Expense" resultMap="BaseResultMap">
+        select te.*,tu.userName from t_expense te inner join t_users tu on te.userId=tu.userId
+        <where>
+      <!--  <if test="expenseId!= 0 and expenseId!=null">
+             and te.expenseId=#{expenseId,jdbcType=INTEGER}
+        </if>
+        <if test="userId!= 0 and userId!=null">
+             and te.userId=#{userId,jdbcType=INTEGER}
+        </if>-->
+        <if test="expenseName != null and !''.equals(expenseName)">
+            and te.expenseName like concat('%',#{expenseName},'%')
+        </if>
+        <if test="userName != null and !''.equals(userName)">
+            and tu.userName like concat('%',#{userName},'%')
+        </if>
+        <if test="expenseState != null and !''.equals(expenseState)">
+            and te.expenseState=#{expenseState}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            and unix_timestamp(expenseDate) &gt;= unix_timestamp(#{startDate})
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            and unix_timestamp(expenseDate) &lt;= unix_timestamp(#{endDate})
+        </if>
+        </where>
+    </select>
+</mapper>

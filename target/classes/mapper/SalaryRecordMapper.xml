@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.SalaryRecordMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.SalaryRecord">
+        <id column="salaryId" jdbcType="INTEGER" property="salaryId"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="salaryMonth" jdbcType="TIMESTAMP" property="salaryMonth"/>
+        <result column="salaryDate" jdbcType="TIMESTAMP" property="salaryDate"/>
+        <result column="salaryBasic" jdbcType="REAL" property="salaryBasic"/>
+        <result column="salaryComm" jdbcType="REAL" property="salaryComm"/>
+    </resultMap>
+    <select id="querySalaryByUserIdOrSalaryMonth" resultMap="BaseResultMap"
+            parameterType="com.nm.cost.model.SalaryRecord">
+        select * from t_salary_record where userId=#{userId}
+        <if test="salaryMonth!=null">
+            and salaryMonth=#{salaryMonth}
+        </if>
+    </select>
+
+    <select id="querySalaryByUserNameOrSalaryMonth" resultMap="BaseResultMap"
+            parameterType="com.nm.cost.model.SalaryRecord">
+        select tsr.*,ts.userName from t_salary_record tsr inner join t_users ts on tsr.userId=ts.userId where
+        ts.userMark=0
+        <if test="salaryMonth!=null">
+            and tsr.salaryMonth=#{salaryMonth}
+        </if>
+        <if test="userName!=null and userName!=''">
+            and ts.userName like concat("%",#{userName},"%")
+        </if>
+    </select>
+</mapper>

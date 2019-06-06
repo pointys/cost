@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.CostMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.Cost">
+        <id column="costId" jdbcType="INTEGER" property="costId"/>
+        <result column="costName" jdbcType="VARCHAR" property="costName"/>
+        <result column="costDesc" jdbcType="VARCHAR" property="costDesc"/>
+        <result column="costMark" jdbcType="VARCHAR" property="costMark"/>
+    </resultMap>
+    <!--动态sql
+    resultType返回的是集合中的元素类型(基本数据类型)，而不是集合本身
+    -->
+    <select id="queryCostByCostIdOrByCostName" parameterType="com.nm.cost.model.Cost" resultMap="BaseResultMap">
+        select costId, costName, costDesc, costMark
+        from t_cost where costMark = 0
+        <if test="costId!=null">
+            and costId=#{costId}
+        </if>
+        <if test="costName!=null and costName!=''">
+            and costName like concat('%',#{costName},'%')
+        </if>
+    </select>
+
+    <update id="updateCost" parameterType="com.nm.cost.model.Cost">
+        update t_cost
+        <set>
+            <if test="costName!=null and costName!=''">
+                costName=#{costName},
+            </if>
+            <if test="costDesc!=null and costName!=''">
+                costDesc=#{costDesc}
+            </if>
+        </set>
+        where costId=#{costId,jdbcType=INTEGER}
+    </update>
+
+        <update id="deleteCost" parameterType="Integer">
+            update t_cost set costMark ='1' where costId in
+            <foreach collection="ids" open="(" item="id" separator="," close=")">
+                #{id}
+            </foreach>
+        </update>
+
+  <!--  <insert id="addCost" parameterType="com.nm.cost.model.Cost">
+        insert into t_cost (costName,costDesc,costMark) values (#{costName,jdbcType=VARCHAR},#{costDesc,jdbcType=VARCHAR},'0')
+    </insert>-->
+</mapper>

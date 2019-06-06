@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nm.cost.mapper.DocumentMapper">
+    <resultMap id="BaseResultMap" type="com.nm.cost.model.Document">
+
+    </resultMap>
+    <select id="querys" parameterType="com.nm.cost.model.Document" resultMap="BaseResultMap">
+        select f.*,u.userName from t_file f left join t_users u on f.user_id=u.userId
+        <where>
+            <if test="file_id!=null">
+                and f.file_id=#{file_id}
+            </if>
+            <if test="file_name!=null and file_name!=''">
+                and f.file_name like CONCAT('%',#{file_name},'%')
+            </if>
+            <if test="file_size!=null">
+                and f.file_size=#{file_size}
+            </if>
+            <if test="beginDate != null and beginDate != '' ">
+                and f.file_date &gt;= #{beginDate}
+            </if>
+            <if test="endDate != null and endDate != '' ">
+                and f.file_date &lt;= #{endDate}
+            </if>
+            <if test="file_type != null and file_type != '' ">
+                and f.file_type = #{file_type}
+            </if>
+
+            <if test="file_mark!=null and file_mark!=''">
+                and file_mark=#{file_mark}
+            </if>
+            <if test="user_id!=null">
+                and user_id=#{user_id}
+            </if>
+            <if test="userName!=null and userName!=''">
+                and u.userName like CONCAT('%',#{userName},'%')
+            </if>
+        </where>
+    </select>
+
+    <delete id="delete">
+        delete from t_file where file_id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

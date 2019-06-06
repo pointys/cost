@@ -1,0 +1,9 @@
+openoffice的host与port
+"127.0.0.1", 8300
+href写全路径不然会连着之前的路径 href="${pageContext.request.contextPath}/system/main"
+**********************开发与部署******************
+1.properties中openoffice各路径
+2.OfficePDFConverter类windows与linux命令切换
+3.是否要水印去documentService改
+4.logback.xml日志配置修改windows和linux路径不同
+5.打包完在tomcat启动解压后手动将本地lib所有包加入解压后的lib包中
